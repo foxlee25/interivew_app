@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LolInfoMobile_struct.iml" filepath="$PROJECT_DIR$/LolInfoMobile_struct.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interivew_app.iml" filepath="$PROJECT_DIR$/interivew_app.iml" />
     </modules>
   </component>
 </project>
