@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+      android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:id="@+id/image_container"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <TextView 
+                android:id="@+id/rate_us_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Please rate us 5 Stars "
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+				android:layout_centerHorizontal="true"
+            
+                />
+            <RelativeLayout
+                android:id="@+id/stars_finger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rate_us_title"
+                android:layout_marginTop="10dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+                <ImageView
+                    android:id="@+id/five_stars"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/finger"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:layout_gravity="right|bottom"
+                    android:layout_alignBottom="@+id/five_stars"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <!-- bottom button bar -->
+
+
+
+            <LinearLayout
+                android:id="@+id/bottom_buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <Button
+                    android:id="@+id/ok_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+
+                    android:layout_marginBottom="10dp"
+
+                    android:textSize="18sp"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+</LinearLayout>

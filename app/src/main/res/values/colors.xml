@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBar">#51AAFF</color>
+    <color name="colorBlue">#ff0000ff</color>
+    <color name="colorBlack">#FF000000</color>
+    <color name="colorDarkBlue">#3F51B5</color>
+    <color name="colorGreen">#1AC2A5</color>
+    <color name="colorGrey">#726B68</color>
+    <color name="colorLightGrey">#BDBDBD</color>
+    <color name="cardview_initial_background">#71C3DE</color>
+    <color name="colorOrange">#EA8A3E</color>
+    <color name="colorYellowStar">#FABD15</color>
+    <color name="colorPearlWhite">#eeebd9</color>
+    <color name="colorLightBlue">#51AAEC</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPurple">#707ED9</color>
+    <color name="colorRed">#F0001F</color>
+    <color name="colorRedDark">#E75E68</color>
+    <color name="colorSkyBlue">#87CEFA</color>
+    <color name="colorSlideBlue">#2A3F6A</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <!--<color name="colorWhite">#FFFFFF</color>-->
+    <color name="colorSlide1">#0A61FE</color>
+    <color name="colorSlide2">#00C7FE</color>
+    <color name="colorSlide3">#41A5AC</color>
+    <color name="colorSlide4">#F041A5</color>
+    <color name="colorSlide5">#6E88C6</color>
+    <color name="colorSlide6">#EF2C66</color>
+    <color name="colorSlide7">#A258D3</color>
+</resources>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="165dp"
+    android:id="@+id/drawer_layout"
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:orientation="vertical"
+    android:background="@drawable/slideshape2"
+    android:weightSum="8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconAlgorithm"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:scaleType="fitXY"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowAlgorithm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_algorithm"
+            android:padding="5dp" />
+        <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/menu_code_blue"/>-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconJava"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:scaleType="fitXY"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowJava"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_java"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconAndroid"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowAndroid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_android"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconDB"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowIconDB"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_database"
+            android:padding="5dp" />
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/slide_new"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconFavorite"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowIconFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_favorite"
+            android:padding="5dp" />
+    </LinearLayout>
+    <!--android:scaleType="fitXY"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconAbout"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowIconAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_about"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIcon5"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/text_rowIcon5"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_feedback"
+            android:padding="5dp" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIcon7"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp">
+        <TextView
+            android:id="@+id/text_rowIcon7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_version"
+            android:padding="5dp" />
+    </LinearLayout>
+</LinearLayout>
