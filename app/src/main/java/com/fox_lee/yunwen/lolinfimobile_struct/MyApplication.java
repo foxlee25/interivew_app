@@ -1,4 +1,4 @@
-package com.fox_lee.yunwen.lolinfimobile_struct.APIs;
+package com.fox_lee.yunwen.lolinfimobile_struct;
 
 import android.app.Application;
 
