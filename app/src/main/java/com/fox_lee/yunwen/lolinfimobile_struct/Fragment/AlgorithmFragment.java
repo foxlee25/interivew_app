@@ -1,4 +1,7 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -17,16 +20,26 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 /**
  * Created by Yunwen on 2/11/2016.
  */
 public class AlgorithmFragment extends  Fragment{
     RecyclerView mRecyclerView;
     private AlgorithmAdapter algorithmAdapter;
+    private AdView mAdView;
+
+    private AdRequest adRequest;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
+
+        mAdView = (AdView) getActivity().findViewById(R.id.adView);
+        adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         return view;
     }
 

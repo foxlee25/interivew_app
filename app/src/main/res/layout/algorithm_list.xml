@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:id="@+id/group_view">
+<LinearLayout xmlns:ads="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:id="@+id/group_view">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="404dp"
         android:id="@+id/user_list"
         android:layout_marginLeft="16sp"
         android:layout_marginStart="16sp"
@@ -35,4 +35,19 @@
         android:alpha="0.7"
         android:layout_margin="8dp"
         />
+    <RelativeLayout android:id="@+id/inner_ad"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+
+    >
+    <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-5427353993342507/6318797670">
+    </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
 </LinearLayout>
