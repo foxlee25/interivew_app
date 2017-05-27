@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.flurry.android.FlurryAgent;
 import com.fox_lee.yunwen.lolinfimobile_struct.Constants.Key;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AboutFragment;
@@ -48,28 +49,69 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     public enum AppStart {
         FIRST_TIME, FIRST_TIME_VERSION, NORMAL;
     }
+
     ProgressDialog dialog = null;
+
     int counter = 0;
+
     Thread t = null;
+
     private static final String LAST_APP_VERSION = "last_app_version";
-//    private SlidingLayout slidingLayout;
+
+    //    private SlidingLayout slidingLayout;
     ActionBarDrawerToggle mDrawerToggle;
+
     boolean doubleBackToExitPressedOnce = false;
-    LinearLayout ll1;LinearLayout ll2;   LinearLayout ll3;LinearLayout ll4;LinearLayout ll5;RelativeLayout ll6;LinearLayout ll7;
+
+    LinearLayout ll1;
+
+    LinearLayout ll2;
+
+    LinearLayout ll3;
+
+    LinearLayout ll4;
+
+    LinearLayout ll5;
+
+    RelativeLayout ll6;
+
+    LinearLayout ll7;
+
     RelativeLayout lla;
 
-    TextView tv1;TextView tv2;TextView tva;TextView tv3;
-    TextView tv4;TextView tv5;TextView tv6;TextView tv7;
+    TextView tv1;
+
+    TextView tv2;
+
+    TextView tva;
+
+    TextView tv3;
+
+    TextView tv4;
+
+    TextView tv5;
+
+    TextView tv6;
+
+    TextView tv7;
+
 
     public void onPlainRateMeButtonClick(View view) {
         showPlainRateMeDialog();
     }
 
-    public void onCustomRateMeButtonClick(View view) {showCustomRateMeDialog();}
+    public void onCustomRateMeButtonClick(View view) {
+        showCustomRateMeDialog();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         createView();//create icon in the slide menu
         setListener();//set onclick listener in the slide menu
         changeColor();
+
+        MobileAds.initialize(this,Key.ADMOB_KEY);
         this.startAlgorithmFragment("");
 
         switch (checkAppStart()) {
@@ -99,25 +143,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void initFlurry(){
+    private void initFlurry() {
         FlurryAgent.init(this, Key.FLURRY_API_KEY);
         FlurryAgent.onStartSession(this, Key.FLURRY_API_KEY);
         FlurryAgent.setLogEnabled(true);
         FlurryAgent.setLogEvents(true);
         FlurryAgent.setLogLevel(Log.VERBOSE);
     }
-    private void createView(){
+
+    private void createView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(R.drawable.menu_icon);
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar,
+                R.string.openDrawer, R.string.closeDrawer) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
             }
+
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -160,31 +207,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv7 = (TextView) findViewById(R.id.text_rowIcon7);
     }
 
-    private void setListener(){
-        tv1.setOnClickListener(this);tv2.setOnClickListener(this);tva.setOnClickListener(this);tv3.setOnClickListener(this);
-        tv4.setOnClickListener(this);tv5.setOnClickListener(this);tv6.setOnClickListener(this);tv7.setOnClickListener(this);
+    private void setListener() {
+        tv1.setOnClickListener(this);
+        tv2.setOnClickListener(this);
+        tva.setOnClickListener(this);
+        tv3.setOnClickListener(this);
+        tv4.setOnClickListener(this);
+        tv5.setOnClickListener(this);
+        tv6.setOnClickListener(this);
+        tv7.setOnClickListener(this);
     }
 
-    private void setRatingDialog(){
+    private void setRatingDialog() {
         t = new Thread() {
             public void run() {
                 try {
-                    while(counter<1){
+                    while (counter < 1) {
                         //do something
                         updateGallery(0);
-                        Thread.sleep(5000*5);
+                        Thread.sleep(5000 * 5);
                         updateGallery(1);
-                        Thread.sleep(1000*5);
+                        Thread.sleep(1000 * 5);
                         showCustomRateMeDialog();
                     }
-                }catch(Exception ex){
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
         };
         t.start();
     }
-    private void changeColor(){
+
+    private void changeColor() {
     }
 
     public void onClick(View v) {
@@ -286,9 +340,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 0: {
                 ++counter;
 //                dialog = new ProgressDialog(this);
-                if(counter==1){
+                if (counter == 1) {
 //                    dialog.setMessage("Registering...");
-                }else{
+                } else {
 //                    dialog.setMessage("Registered successfully");
                 }
 //                dialog.setIndeterminate(true);
@@ -311,20 +365,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
     @Override
-    public void onStop()
-    {
+    public void onStop() {
         super.onStop();
         FlurryAgent.onEndSession(this);
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         FragmentManager fm = getFragmentManager();
         if (fm.getBackStackEntryCount() > 1) {
             fm.popBackStack();
-        }
-        else {
+        } else {
             //super.onBackPressed();
         }
         if (doubleBackToExitPressedOnce) {
@@ -342,79 +395,88 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, 350);
     }
 
-    public void startContentFragment(String var, ArrayList array){
+    public void startContentFragment(String var, ArrayList array) {
         ContentFragment contentFragment = new ContentFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "SubFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, contentFragment, "SubFragment")
                 .addToBackStack("SubFragment").commit();
-        contentFragment.changeData(var,array);
+        contentFragment.changeData(var, array);
     }
 
-    public void startContent2Fragment(String var, ArrayList array){
+    public void startContent2Fragment(String var, ArrayList array) {
         ContentFragment contentFragment = new ContentFragment();
         getFragmentManager().popBackStack();
-        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "SubFragment")
-        .addToBackStack("SubFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, contentFragment, "SubFragment")
+                .addToBackStack("SubFragment")
                 .commit();
-        contentFragment.changeData(var,array);
+        contentFragment.changeData(var, array);
     }
 
-    public void startSubFragment(String[] var){
+    public void startSubFragment(String[] var) {
         SubFragment subFragment = new SubFragment();
         getFragmentManager().beginTransaction().replace(R.id.container, subFragment, "SubFragment")
                 .addToBackStack("SubFragment").commit();
         subFragment.changeData(var);
     }
 
-    public void startJavaFragment(String var){
+    public void startJavaFragment(String var) {
         JavaFragment javaFragment = new JavaFragment();
         getFragmentManager().beginTransaction().replace(R.id.container, javaFragment, "SubFragment")
                 .addToBackStack("SubFragment").commit();
     }
 
-    public void startAndroidFragment(){
+    public void startAndroidFragment() {
         AndroidFragment androidFragment = new AndroidFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, androidFragment, "AndroidFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, androidFragment, "AndroidFragment")
                 .addToBackStack("AndroidFragment").commit();
     }
 
-    public void startFeedbackFragment(String var){
+    public void startFeedbackFragment(String var) {
         FeedbackFragment feedbackFragment = new FeedbackFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, feedbackFragment, "SubFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, feedbackFragment, "SubFragment")
                 .addToBackStack("SubFragment").commit();
     }
 
-    public void startDbLoadFragment(String var){
+    public void startDbLoadFragment(String var) {
         DbLoadFragment feedbackFragment = new DbLoadFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, feedbackFragment, "DbLoadFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, feedbackFragment, "DbLoadFragment")
                 .addToBackStack("DbLoadFragment").commit();
     }
 
-    public void startAlgorithmFragment(String var){
+    public void startAlgorithmFragment(String var) {
         AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
                 .addToBackStack("AlgorithmFragment").commit();
     }
 
-    public void startDbFragment(){
+    public void startDbFragment() {
         DbFragment dbFragment = new DbFragment();
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, dbFragment, "DbFragment")
                 .addToBackStack("DbFragment")
                 .commit();
     }
-    public void startAboutFragment(){
+
+    public void startAboutFragment() {
         AboutFragment aboutFragment = new AboutFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, aboutFragment, "AboutFragment")
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, aboutFragment, "AboutFragment")
                 .addToBackStack("AboutFragment").commit();
     }
 
-    public void startDataBaseFragment(String var){
+    public void startDataBaseFragment(String var) {
         DataBaseFragment dbFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, dbFragment, "DataBaseFragment")
-                .addToBackStack( "DataBaseFragment")
+                .addToBackStack("DataBaseFragment")
                 .commit();
     }
+
     public AppStart checkAppStart() {
         PackageInfo pInfo;
         SharedPreferences sharedPreferences = PreferenceManager
@@ -493,8 +555,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onRating(RatingAction action, float rating) {
                         Toast.makeText(MainActivity.this,
-                                "Rate Me action: " + action + " (rating: " + rating + ")", Toast.LENGTH_LONG).show();
+                                "Rate Me action: " + action + " (rating: " + rating + ")",
+                                Toast.LENGTH_LONG).show();
                     }
+
                     @Override
                     public int describeContents() {
                         return 0;

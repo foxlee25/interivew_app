@@ -4,8 +4,9 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="9"
         android:id="@+id/algorithm_Id"
         android:visibility="gone"/>
 
@@ -19,9 +20,11 @@
         android:textStyle="bold"/>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="33dp"
+        android:layout_width="50dp"
+        android:layout_height="31dp"
         android:id="@+id/algorithm_delete"
         android:paddingTop="6dp"
-        android:src="@drawable/del" />
+        android:paddingRight="6dp"
+        android:src="@drawable/ic_clear_black_24dp" />
+
 </LinearLayout>
