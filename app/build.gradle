@@ -8,8 +8,8 @@ android {
         applicationId "com.fox_lee.yunwen.lolsinfomobile_ctruct"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 12
-        versionName "1.4.5"
+        versionCode 14
+        versionName "1.5"
     }
     buildTypes {
         release {
