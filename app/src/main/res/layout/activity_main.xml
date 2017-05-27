@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/colorLightGrey"
+    android:background="@color/colorPearlWhite"
     tools:context="com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -29,7 +29,7 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:background="@color/colorLightGrey">
+            android:background="@color/colorWhite">
         </FrameLayout>
 
     </android.support.design.widget.AppBarLayout>
@@ -37,5 +37,7 @@
     <include
         android:id="@+id/slide_drawer"
         layout="@layout/slide_drawer" />
+
+
 
 </android.support.v4.widget.DrawerLayout>

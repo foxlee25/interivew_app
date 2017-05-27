@@ -1,4 +1,7 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -20,6 +23,11 @@ public class SubFragment extends  Fragment{
     private RecyclerView mRecyclerView;
     private SubAdapter algorithmsubAdapter;
     private String[] dataContent;
+
+    private AdView mAdView;
+
+    private AdRequest adRequest;
+
     public void changeData(String[] dataContent) {
         this.dataContent = dataContent;
     }
@@ -27,6 +35,12 @@ public class SubFragment extends  Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
+
+        mAdView = (AdView) view.findViewById(R.id.adView);
+        adRequest = new AdRequest.Builder().build();
+        if (mAdView != null) {
+            mAdView.loadAd(adRequest);
+        }
         return view;
     }
 

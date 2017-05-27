@@ -26,4 +26,5 @@
         android:paddingTop="6dp"
         android:paddingRight="6dp"
         android:src="@drawable/ic_clear_black_24dp" />
+
 </LinearLayout>
