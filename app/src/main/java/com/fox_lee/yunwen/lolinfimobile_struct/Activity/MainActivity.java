@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setListener();//set onclick listener in the slide menu
         changeColor();
 
-        MobileAds.initialize(this, "ca-app-pub-5427353993342507~8389776877");
+        MobileAds.initialize(this,Key.ADMOB_KEY);
         this.startAlgorithmFragment("");
 
         switch (checkAppStart()) {

@@ -81,11 +81,11 @@
                 android:id="@+id/adView"
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/view_href"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-5427353993342507/6318797670">
+                ads:adUnitId="@string/ad_unit_id_answer_page">
         </com.google.android.gms.ads.AdView>
         <TextView
                 android:id="@+id/text_getAnswer"

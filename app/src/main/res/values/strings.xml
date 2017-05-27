@@ -73,7 +73,8 @@
 
     <!--ad unit -->
     <string name="ad_unit_name">bottom_ad</string>
-    <string name="ad_unit_id">ca-app-pub-5427353993342507/6318797670</string>
+    <string name="ad_unit_id_algo">ca-app-pub-5427353993342507/6318797670</string>
+    <string name="ad_unit_id_answer_page">ca-app-pub-5427353993342507/5782244071</string>
 
 
 </resources>
