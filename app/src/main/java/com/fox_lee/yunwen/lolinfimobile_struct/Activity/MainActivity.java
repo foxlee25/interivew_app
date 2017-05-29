@@ -52,12 +52,15 @@ import java.util.ArrayList;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public enum AppStart {
         FIRST_TIME, FIRST_TIME_VERSION, NORMAL;
     }
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     ProgressDialog dialog = null;
 
@@ -123,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setListener();//set onclick listener in the slide menu
         changeColor();
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         MobileAds.initialize(this,Key.ADMOB_KEY);
         this.startAlgorithmFragment("");
 
@@ -174,20 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawer_layout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-//        slidingLayout = (SlidingLayout) findViewById(R.id.slidingLayout);
-//        slidingLayout.setScrollEvent(appBarLayout);
 
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // click to achieve menu left slide layout，click again to hide left slide layout
-//                if (slidingLayout.isLeftLayoutVisible()) {
-//                    slidingLayout.scrollToRightLayout();
-//                } else {
-//                    slidingLayout.scrollToLeftLayout();
-//                }
-//            }
-//        });
         toolbar.getMenu().clear();
         ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
@@ -252,41 +244,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.logEvent("Algorithm");
                 // End the timed event, when the user navigates away from article
                 FlurryAgent.endTimedEvent("Algorithm");
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID,"Algorithm");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundle);
                 break;
             case R.id.text_rowJava: /** Start a new fragment LolRecyclerViewFragment.java */
                 this.startJavaFragment("");
                 FlurryAgent.logEvent("Java");
                 FlurryAgent.endTimedEvent("Java");
+
+                Bundle bundleJava = new Bundle();
+                bundleJava.putString(FirebaseAnalytics.Param.ITEM_ID,"Java");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleJava);
                 break;
             case R.id.text_rowAndroid: /** Start a new fragment LolRecyclerViewFragment.java */
 
                 this.startAndroidFragment();
                 FlurryAgent.logEvent("Android");
                 FlurryAgent.endTimedEvent("Android");
+
+                Bundle bundleAndroid = new Bundle();
+                bundleAndroid.putString(FirebaseAnalytics.Param.ITEM_ID,"Android");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleAndroid);
+
                 break;
             case R.id.text_rowIconFavorite: /** AlerDialog when click on 3rd icon */
 
                 this.startDbFragment();
                 FlurryAgent.logEvent("Favorite List");
                 FlurryAgent.endTimedEvent("Favorite List");
+
+                Bundle bundleFL = new Bundle();
+                bundleFL.putString(FirebaseAnalytics.Param.ITEM_ID,"Favorite List");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleFL);
+
                 break;
             case R.id.text_rowIconAbout: /** AlerDialog when click on 3rd icon */
 
                 this.startAboutFragment();
                 FlurryAgent.logEvent("About");
                 FlurryAgent.endTimedEvent("About");
+
+                Bundle BundleAbout = new Bundle();
+                BundleAbout.putString(FirebaseAnalytics.Param.ITEM_ID,"About");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,BundleAbout);
+
                 break;
             case R.id.text_rowIcon5: /** AlerDialog when click on 3rd icon */
 
                 this.startFeedbackFragment("");
                 FlurryAgent.logEvent("Feedback");
                 FlurryAgent.endTimedEvent("Feedback");
+
+                Bundle bundleFeedback = new Bundle();
+                bundleFeedback.putString(FirebaseAnalytics.Param.ITEM_ID,"Feedback");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleFeedback);
+
                 break;
             case R.id.text_rowIconDB: /** AlerDialog when click on 3rd icon */
 
                 this.startDataBaseFragment("");
                 FlurryAgent.logEvent("Database");
                 FlurryAgent.endTimedEvent("Database");
+
+                Bundle bundleDB = new Bundle();
+                bundleDB.putString(FirebaseAnalytics.Param.ITEM_ID,"Database");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleDB);
+
                 break;
             default:
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)

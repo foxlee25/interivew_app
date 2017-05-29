@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 /**
  * Created by Yunwen on 2/11/2016.
@@ -42,6 +43,7 @@ public class ContentFragment extends Fragment {
 
     private AdView mAdView;
 
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     Button btnPre;
 
@@ -63,9 +65,16 @@ public class ContentFragment extends Fragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_content_list, container, false);
         mAdView = (AdView) view.findViewById(R.id.adView);
+
+        //Firebase init
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getActivity());
+
         AdRequest adRequest = new AdRequest.Builder().build();
         if (mAdView != null) {
             mAdView.loadAd(adRequest);
+            Bundle bundleAds= new Bundle();
+            bundleAds.putString(FirebaseAnalytics.Param.ITEM_ID,"Answer_ads");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleAds);
         }
         return view;
     }
@@ -113,6 +122,11 @@ public class ContentFragment extends Fragment {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Bundle bundleShowAnser = new Bundle();
+                bundleShowAnser.putString(FirebaseAnalytics.Param.ITEM_ID,"Show_Answer");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleShowAnser);
+
                 if (showingFirst) {
                     tvAnswer.setVisibility(v.VISIBLE);
                     btnAnswer.setText("Hide Answer");
