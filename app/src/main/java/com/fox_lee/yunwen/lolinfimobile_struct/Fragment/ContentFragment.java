@@ -2,6 +2,7 @@ package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -13,12 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.InterAd_Activity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -76,6 +80,9 @@ public class ContentFragment extends Fragment {
             bundleAds.putString(FirebaseAnalytics.Param.ITEM_ID,"Answer_ads");
             mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleAds);
         }
+
+        openInterAdActivity();
+
         return view;
     }
 
@@ -223,5 +230,20 @@ public class ContentFragment extends Fragment {
     public void changeData(String data, ArrayList dataContent) {
         this.data = data;
         this.dataContent = dataContent;
+    }
+
+    private void openInterAdActivity() {
+
+        final Intent localIntent = new Intent(getActivity(), InterAd_Activity.class);
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                startActivity(localIntent);
+            }
+        };
+        timer.schedule(task, 10000);
+
+
     }
 }
