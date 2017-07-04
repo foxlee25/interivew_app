@@ -53,7 +53,7 @@
     <string name="slide_android">Android</string>
     <string name="slide_about">About</string>
     <string name="slide_favorite">Favorite List</string>
-    <string name="slide_version">V1.4.5</string>
+    <string name="slide_version">V1.4.6</string>
     <string name="slide_feedback">Feedback</string>
     <string name="slide_database">DataBase</string>
 
@@ -73,8 +73,16 @@
 
     <!--ad unit -->
     <string name="ad_unit_name">bottom_ad</string>
+    <!--real ad id-->
     <string name="ad_unit_id_algo">ca-app-pub-5427353993342507/6318797670</string>
     <string name="ad_unit_id_answer_page">ca-app-pub-5427353993342507/5782244071</string>
+
+    <!--test id -->
+    <!--<string name="ad_unit_id_algo">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--<string name="ad_unit_id_answer_page">ca-app-pub-3940256099942544/6300978111</string>-->
+
+    <string name="ad_inter"> ca-app-pub-5427353993342507/9501519273</string>
+    <string name="ad_inter_test">ca-app-pub-3940256099942544/1033173712</string>
 
 
 </resources>
