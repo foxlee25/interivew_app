@@ -9,7 +9,9 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 12
-        versionName "1.4.5"
+        versionName "1.4.6"
+
+
     }
     buildTypes {
         release {
@@ -17,6 +19,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {

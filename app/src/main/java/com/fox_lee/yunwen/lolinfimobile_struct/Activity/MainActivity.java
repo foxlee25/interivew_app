@@ -48,6 +48,8 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Utility.SlidingLayout;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        MobileAds.initialize(this,Key.ADMOB_KEY);
+        MobileAds.initialize(this, Key.ADMOB_KEY);
         this.startAlgorithmFragment("");
 
         switch (checkAppStart()) {
@@ -146,6 +148,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+
+        openInterAdActivity();
+
+    }
+
+
+    private void openInterAdActivity() {
+
+        final Intent localIntent = new Intent(this, InterAd_Activity.class);
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                startActivity(localIntent);
+            }
+        };
+        timer.schedule(task, 10000);
+
+
     }
 
     private void initFlurry() {
@@ -179,7 +200,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawer_layout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-
         toolbar.getMenu().clear();
         ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
@@ -197,6 +217,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv5 = (TextView) findViewById(R.id.text_rowIcon5);
         tv6 = (TextView) findViewById(R.id.text_rowIconDB);
         tv7 = (TextView) findViewById(R.id.text_rowIcon7);
+
+        //init inter_ad
+//        openInterAdActivity();
+
     }
 
     private void setListener() {
@@ -245,8 +269,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // End the timed event, when the user navigates away from article
                 FlurryAgent.endTimedEvent("Algorithm");
                 Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID,"Algorithm");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundle);
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Algorithm");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                 break;
             case R.id.text_rowJava: /** Start a new fragment LolRecyclerViewFragment.java */
                 this.startJavaFragment("");
@@ -254,8 +278,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("Java");
 
                 Bundle bundleJava = new Bundle();
-                bundleJava.putString(FirebaseAnalytics.Param.ITEM_ID,"Java");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleJava);
+                bundleJava.putString(FirebaseAnalytics.Param.ITEM_ID, "Java");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleJava);
                 break;
             case R.id.text_rowAndroid: /** Start a new fragment LolRecyclerViewFragment.java */
 
@@ -264,8 +288,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("Android");
 
                 Bundle bundleAndroid = new Bundle();
-                bundleAndroid.putString(FirebaseAnalytics.Param.ITEM_ID,"Android");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleAndroid);
+                bundleAndroid.putString(FirebaseAnalytics.Param.ITEM_ID, "Android");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleAndroid);
 
                 break;
             case R.id.text_rowIconFavorite: /** AlerDialog when click on 3rd icon */
@@ -275,8 +299,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("Favorite List");
 
                 Bundle bundleFL = new Bundle();
-                bundleFL.putString(FirebaseAnalytics.Param.ITEM_ID,"Favorite List");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleFL);
+                bundleFL.putString(FirebaseAnalytics.Param.ITEM_ID, "Favorite List");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleFL);
 
                 break;
             case R.id.text_rowIconAbout: /** AlerDialog when click on 3rd icon */
@@ -286,8 +310,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("About");
 
                 Bundle BundleAbout = new Bundle();
-                BundleAbout.putString(FirebaseAnalytics.Param.ITEM_ID,"About");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,BundleAbout);
+                BundleAbout.putString(FirebaseAnalytics.Param.ITEM_ID, "About");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, BundleAbout);
 
                 break;
             case R.id.text_rowIcon5: /** AlerDialog when click on 3rd icon */
@@ -297,8 +321,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("Feedback");
 
                 Bundle bundleFeedback = new Bundle();
-                bundleFeedback.putString(FirebaseAnalytics.Param.ITEM_ID,"Feedback");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleFeedback);
+                bundleFeedback.putString(FirebaseAnalytics.Param.ITEM_ID, "Feedback");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleFeedback);
 
                 break;
             case R.id.text_rowIconDB: /** AlerDialog when click on 3rd icon */
@@ -308,8 +332,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("Database");
 
                 Bundle bundleDB = new Bundle();
-                bundleDB.putString(FirebaseAnalytics.Param.ITEM_ID,"Database");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleDB);
+                bundleDB.putString(FirebaseAnalytics.Param.ITEM_ID, "Database");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleDB);
 
                 break;
             default:
@@ -394,6 +418,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onStop() {
         super.onStop();
         FlurryAgent.onEndSession(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 
     @Override
