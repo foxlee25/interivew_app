@@ -14,6 +14,7 @@
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:id="@+id/outer_layout">
 
+        <!--inner layout start -->
         <TextView
                 android:id="@+id/text_title"
                 android:layout_width="300dp"
@@ -25,12 +26,15 @@
                 android:layout_height="35dp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/favorite_empty"/>
+
+
         <TextView
                 android:id="@+id/text_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text_title"
                 android:textColor="@color/colorBlack"/>
+        <!--inner layout end -->
 
         <LinearLayout
                 android:id="@+id/linear_getAnswer"

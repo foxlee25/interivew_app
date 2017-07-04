@@ -10,6 +10,12 @@
         android:layout_marginRight="70dp"
         android:layout_marginLeft="-64dp"
         android:weightSum="8">
+    <View
+        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+    >
+
+    </View>
 
     <LinearLayout
             android:layout_width="match_parent"
