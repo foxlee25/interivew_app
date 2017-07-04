@@ -12,8 +12,7 @@
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:id="@+id/outer_layout"
-    >
+                    android:id="@+id/outer_layout">
 
         <TextView
                 android:id="@+id/text_title"

@@ -9,7 +9,6 @@
         android:background="@color/colorLightBlue"
         android:layout_marginRight="70dp"
         android:layout_marginLeft="-64dp"
-
         android:weightSum="8">
 
     <LinearLayout
