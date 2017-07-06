@@ -76,13 +76,13 @@
     <!--real ad id-->
     <string name="ad_unit_id_algo">ca-app-pub-5427353993342507/6318797670</string>
     <string name="ad_unit_id_answer_page">ca-app-pub-5427353993342507/5782244071</string>
+    <string name="ad_inter"> ca-app-pub-5427353993342507/9501519273</string>
 
     <!--test id -->
     <!--<string name="ad_unit_id_algo">ca-app-pub-3940256099942544/6300978111</string>-->
     <!--<string name="ad_unit_id_answer_page">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--<string name="ad_inter">ca-app-pub-3940256099942544/1033173712</string>-->
 
-    <string name="ad_inter"> ca-app-pub-5427353993342507/9501519273</string>
-    <string name="ad_inter_test">ca-app-pub-3940256099942544/1033173712</string>
 
 
 </resources>

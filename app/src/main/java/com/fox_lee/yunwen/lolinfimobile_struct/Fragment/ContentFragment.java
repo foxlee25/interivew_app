@@ -76,12 +76,12 @@ public class ContentFragment extends Fragment {
         AdRequest adRequest = new AdRequest.Builder().build();
         if (mAdView != null) {
             mAdView.loadAd(adRequest);
-            Bundle bundleAds= new Bundle();
-            bundleAds.putString(FirebaseAnalytics.Param.ITEM_ID,"Answer_ads");
-            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleAds);
+            Bundle bundleAds = new Bundle();
+            bundleAds.putString(FirebaseAnalytics.Param.ITEM_ID, "Answer_ads");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleAds);
         }
 
-        openInterAdActivity();
+//        openInterAdActivity();
 
         return view;
     }
@@ -131,8 +131,9 @@ public class ContentFragment extends Fragment {
             public void onClick(View v) {
 
                 Bundle bundleShowAnser = new Bundle();
-                bundleShowAnser.putString(FirebaseAnalytics.Param.ITEM_ID,"Show_Answer");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundleShowAnser);
+                bundleShowAnser.putString(FirebaseAnalytics.Param.ITEM_ID, "Show_Answer");
+                mFirebaseAnalytics
+                        .logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundleShowAnser);
 
                 if (showingFirst) {
                     tvAnswer.setVisibility(v.VISIBLE);
@@ -232,18 +233,20 @@ public class ContentFragment extends Fragment {
         this.dataContent = dataContent;
     }
 
-    private void openInterAdActivity() {
+//    private void openInterAdActivity() {
+//
+//        final Intent localIntent = new Intent(getActivity(), InterAd_Activity.class);
+//        Timer timer = new Timer();
+//        TimerTask task = new TimerTask() {
+//            @Override
+//            public void run() {
+//                startActivity(localIntent);
+//            }
+//        };
+//        timer.schedule(task, 10000);
 
-        final Intent localIntent = new Intent(getActivity(), InterAd_Activity.class);
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                startActivity(localIntent);
-            }
-        };
-        timer.schedule(task, 10000);
+//}
 
 
-    }
+
 }
